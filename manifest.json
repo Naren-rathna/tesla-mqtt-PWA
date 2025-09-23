@@ -2,7 +2,7 @@
   "name": "Teslacare MQTT Dashboard",
   "short_name": "MQTTApp",
   "description": "Real-time MQTT control & monitoring. Teslacare Innovations.",
-  "start_url": "/",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#F7FCFE",
   "theme_color": "#2563eb",
