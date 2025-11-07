@@ -714,6 +714,88 @@ function setTextboxValue(tbId) {
   });
 }
 
+// Add this to your existing script.js after the textbox controls section
+
+// =========================================
+// TIMER BOARD CONTROLS (Add to HTML first)
+// =========================================
+
+// Timer Board textbox values
+function sendTimerDirect(tbNum) {
+  const input = document.getElementById(`TM${tbNum}`);
+  let value = input.value.trim();
+
+  if (!/^\d{1,3}$/.test(value)) {
+    alert("Please enter a valid number between 1 and 999.");
+    input.focus();
+    return;
+  }
+
+  // Format: TMx### where x is 1-4
+  const message = `TM${tbNum}${value.padStart(3, '0')}`;
+
+  if (client && isConnected && currentUsername) {
+    const fullMsg = `${currentUsername}: ${message}`;
+    client.publish(currentUsername, fullMsg);
+    console.log(`📡 Published Timer ${tbNum}:`, fullMsg);
+  }
+
+  saveMessageToServer({
+    timestamp: new Date().toISOString(),
+    topic: currentUsername,
+    msg: message,
+    sender: currentUsername
+  });
+}
+
+function copyTimerToMain(tbNum) {
+  const input = document.getElementById(`TM${tbNum}`);
+  const mainInput = document.getElementById('publishMessage');
+  
+  let value = input.value.trim();
+
+  if (!/^\d{1,3}$/.test(value)) {
+    alert("Please enter a valid number between 1 and 999.");
+    input.focus();
+    return;
+  }
+
+  const message = `TM${tbNum}${value.padStart(3, '0')}`;
+  mainInput.value = message;
+  mainInput.focus();
+  
+  console.log(`📋 Copied to main: ${message}`);
+}
+
+// Mode switch buttons
+function sendModeCommand(modeNum) {
+  // Format: MODE# where # is 1-4
+  const message = `MODE${modeNum}`;
+
+  if (client && isConnected && currentUsername) {
+    const fullMsg = `${currentUsername}: ${message}`;
+    client.publish(currentUsername, fullMsg);
+    console.log(`📡 Published Mode Switch:`, fullMsg);
+  }
+
+  saveMessageToServer({
+    timestamp: new Date().toISOString(),
+    topic: currentUsername,
+    msg: message,
+    sender: currentUsername
+  });
+}
+
+// Restrict Timer textboxes to numbers only
+["TM1", "TM2", "TM3", "TM4"].forEach(id => {
+  const input = document.getElementById(id);
+  if (input) {
+    input.addEventListener("input", (e) => {
+      e.target.value = e.target.value.replace(/\D/g, "").slice(0, 3);
+    });
+  }
+});
+
 // ---------- Restrict TextBoxes to numbers only ----------
 ["TB1", "TB2", "TB3", "TB4", "TB5"].forEach(id => {
   const input = document.getElementById(id);
