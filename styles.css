@@ -646,402 +646,118 @@ input:checked+.slider:before {
   background: #1f2937;
 }
 
-/* Add this to your styles.css */
+
 
 /* Timer Board Section */
-.timerboard-section {
+/* ============================== */
+/* Command Controls (Vertical) */
+/* ============================== */
+
+.command-section {
   margin-top: 25px;
   padding: 20px;
   background: #f0f9ff;
   border: 1px solid #bae6fd;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
 }
 
-.timerboard-section h3 {
-  margin-bottom: 15px;
-  font-size: 18px;
+.command-section h3 {
+  margin-bottom: 20px;
+  font-size: 20px;
   font-weight: bold;
   color: #0369a1;
 }
 
-/* Timer inputs row */
-.timer-row-horizontal {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-/* Each timer input group */
-.timer-item {
+/* Each Command Box */
+.command-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  background: white;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  min-width: 120px;
+  margin-bottom: 20px;
 }
 
-.timer-item label {
-  font-size: 14px;
+.command-item label {
+  font-size: 15px;
   font-weight: bold;
-  color: #0369a1;
-  margin-bottom: 5px;
+  color: #0284c7;
+  margin-bottom: 8px;
 }
 
-.timer-item input {
-  width: 80px;
-  padding: 8px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
+/* Input + Buttons layout */
+.command-input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.command-input-wrapper input {
+  width: 280px;
+  padding: 10px;
+  font-size: 15px;
   border: 2px solid #0ea5e9;
   border-radius: 6px;
   background: #f0f9ff;
+  text-align: left;
+  font-weight: 500;
+  transition: all 0.2s;
 }
 
-.timer-item input:focus {
+.command-input-wrapper input:focus {
   outline: none;
   border-color: #0284c7;
   background: white;
 }
 
-/* Timer button group */
-.timer-buttons {
-  display: flex;
-  gap: 5px;
-  width: 100%;
-}
-
-.timer-buttons button {
-  flex: 1;
-  padding: 8px 5px;
-  font-size: 12px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.2s;
-}
-
-.timer-send {
-  background: #10b981;
-  color: white;
-}
-
-.timer-send:hover {
-  background: #059669;
-  transform: translateY(-1px);
-}
-
-.timer-copy {
-  background: #6366f1;
-  color: white;
-}
-
-.timer-copy:hover {
-  background: #4f46e5;
-  transform: translateY(-1px);
-}
-
-/* Mode Switch Section */
-.mode-switch-section {
-  margin-top: 20px;
-  padding: 15px;
-  background: white;
-  border-radius: 8px;
-  border: 2px solid #e0e7ff;
-}
-
-.mode-switch-section h4 {
-  margin: 0 0 12px 0;
-  font-size: 15px;
-  font-weight: bold;
-  color: #4338ca;
-}
-
-.mode-buttons-row {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.mode-btn {
-  padding: 12px 24px;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s;
-  color: white;
-  min-width: 100px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.mode-1 {
-  background: linear-gradient(135deg, #ef4444, #dc2626);
-}
-
-.mode-1:hover {
-  background: linear-gradient(135deg, #dc2626, #b91c1c);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.mode-2 {
-  background: linear-gradient(135deg, #10b981, #059669);
-}
-
-.mode-2:hover {
-  background: linear-gradient(135deg, #059669, #047857);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.mode-3 {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
-}
-
-.mode-3:hover {
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.mode-4 {
-  background: linear-gradient(135deg, #f59e0b, #d97706);
-}
-
-.mode-4:hover {
-  background: linear-gradient(135deg, #d97706, #b45309);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .timer-row-horizontal {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .timer-item {
-    width: 90%;
-    max-width: 200px;
-  }
-
-  .mode-buttons-row {
-    flex-direction: column;
-  }
-
-  .mode-btn {
-    width: 100%;
-  }
-}
-
-/* Add this to your styles.css */
-
-/* Timer Board Section */
-.timerboard-section {
-  margin-top: 25px;
-  padding: 20px;
-  background: #f0f9ff;
-  border: 1px solid #bae6fd;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.timerboard-section h3 {
-  margin-bottom: 15px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #0369a1;
-}
-
-/* Timer inputs row */
-.timer-row-horizontal {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-/* Each timer input group */
-.timer-item {
+/* Buttons beside inputs */
+.command-buttons {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  background: white;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  min-width: 120px;
+  gap: 6px;
 }
 
-.timer-item label {
-  font-size: 14px;
-  font-weight: bold;
-  color: #0369a1;
-  margin-bottom: 5px;
-}
-
-.timer-item input {
-  width: 80px;
-  padding: 8px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  border: 2px solid #0ea5e9;
-  border-radius: 6px;
-  background: #f0f9ff;
-}
-
-.timer-item input:focus {
-  outline: none;
-  border-color: #0284c7;
-  background: white;
-}
-
-/* Timer button group */
-.timer-buttons {
-  display: flex;
-  gap: 5px;
-  width: 100%;
-}
-
-.timer-buttons button {
-  flex: 1;
-  padding: 8px 5px;
-  font-size: 12px;
-  border-radius: 5px;
+.command-buttons button {
+  padding: 8px 12px;
+  font-size: 13px;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
   transition: all 0.2s;
-}
-
-.timer-send {
-  background: #10b981;
   color: white;
+  width: 70px;
 }
 
-.timer-send:hover {
+/* Send Button */
+.cmd-send {
+  background: #10b981;
+}
+.cmd-send:hover {
   background: #059669;
   transform: translateY(-1px);
 }
 
-.timer-copy {
+/* Copy Button */
+.cmd-copy {
   background: #6366f1;
-  color: white;
 }
-
-.timer-copy:hover {
+.cmd-copy:hover {
   background: #4f46e5;
   transform: translateY(-1px);
 }
 
-/* Mode Switch Section */
-.mode-switch-section {
-  margin-top: 20px;
-  padding: 15px;
-  background: white;
-  border-radius: 8px;
-  border: 2px solid #e0e7ff;
-}
-
-.mode-switch-section h4 {
-  margin: 0 0 12px 0;
-  font-size: 15px;
-  font-weight: bold;
-  color: #4338ca;
-}
-
-.mode-buttons-row {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.mode-btn {
-  padding: 12px 24px;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s;
-  color: white;
-  min-width: 100px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.mode-1 {
-  background: linear-gradient(135deg, #ef4444, #dc2626);
-}
-
-.mode-1:hover {
-  background: linear-gradient(135deg, #dc2626, #b91c1c);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.mode-2 {
-  background: linear-gradient(135deg, #10b981, #059669);
-}
-
-.mode-2:hover {
-  background: linear-gradient(135deg, #059669, #047857);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.mode-3 {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
-}
-
-.mode-3:hover {
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.mode-4 {
-  background: linear-gradient(135deg, #f59e0b, #d97706);
-}
-
-.mode-4:hover {
-  background: linear-gradient(135deg, #d97706, #b45309);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
 /* Responsive design */
 @media (max-width: 768px) {
-  .timer-row-horizontal {
+  .command-input-wrapper {
     flex-direction: column;
-    align-items: center;
+    gap: 8px;
   }
-
-  .timer-item {
-    width: 90%;
-    max-width: 200px;
+  .command-buttons {
+    flex-direction: row;
+    justify-content: center;
   }
-
-  .mode-buttons-row {
-    flex-direction: column;
-  }
-
-  .mode-btn {
-    width: 100%;
+  .command-buttons button {
+    width: 80px;
   }
 }

@@ -24,6 +24,30 @@ const downloadBtn = document.getElementById('downloadBtn');
 const logoutBtn = document.getElementById('logoutBtn');
 const userInfo = document.getElementById('currentUser');
 
+// Register Service Worker with update handling
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/serviceworker.js')
+      .then(reg => {
+        console.log('✅ Service Worker registered:', reg.scope);
+
+        // Listen for updates
+        reg.onupdatefound = () => {
+          const newSW = reg.installing;
+          newSW.onstatechange = () => {
+            if (newSW.state === 'installed' && navigator.serviceWorker.controller) {
+              console.log('🔄 New version available! Reloading...');
+              // Auto-reload (or prompt user)
+              window.location.reload();
+            }
+          };
+        };
+      })
+      .catch(err => console.error('❌ SW registration failed:', err));
+  });
+}
+
+
 // Hardcoded users
 const users = {
   Tesla1: 'Tesla111',
@@ -714,30 +738,38 @@ function setTextboxValue(tbId) {
   });
 }
 
-// Add this to your existing script.js after the textbox controls section
+
 
 // =========================================
 // TIMER BOARD CONTROLS (Add to HTML first)
 // =========================================
+// =========================================
+// TIMER BOARD CONTROLS (Updated)
+// =========================================
 
-// Timer Board textbox values
-function sendTimerDirect(tbNum) {
-  const input = document.getElementById(`TM${tbNum}`);
+// Command Box direct send
+function sendCommandDirect(cmdNum) {
+  const input = document.getElementById(`CMD${cmdNum}`);
   let value = input.value.trim();
 
-  if (!/^\d{1,3}$/.test(value)) {
-    alert("Please enter a valid number between 1 and 999.");
+  if (value.length === 0) {
+    alert("Please enter a valid command.");
+    input.focus();
+    return;
+  }
+  if (value.length > 15) {
+    alert("Command too long (max 15 characters).");
     input.focus();
     return;
   }
 
-  // Format: TMx### where x is 1-4
-  const message = `TM${tbNum}${value.padStart(3, '0')}`;
+  // Format: CMDx:value
+  const message = `CMD${cmdNum}:${value}`;
 
   if (client && isConnected && currentUsername) {
     const fullMsg = `${currentUsername}: ${message}`;
     client.publish(currentUsername, fullMsg);
-    console.log(`📡 Published Timer ${tbNum}:`, fullMsg);
+    console.log(`📡 Published Command ${cmdNum}:`, fullMsg);
   }
 
   saveMessageToServer({
@@ -747,6 +779,25 @@ function sendTimerDirect(tbNum) {
     sender: currentUsername
   });
 }
+
+// Copy command to main message box
+function copyCommandToMain(cmdNum) {
+  const input = document.getElementById(`CMD${cmdNum}`);
+  const mainInput = document.getElementById('publishMessage');
+  
+  let value = input.value.trim();
+  if (value.length === 0) {
+    alert("Please enter a valid command to copy.");
+    input.focus();
+    return;
+  }
+
+  const message = `CMD${cmdNum}:${value}`;
+  mainInput.value = message;
+  mainInput.focus();
+  console.log(`📋 Copied to main: ${message}`);
+}
+
 
 function copyTimerToMain(tbNum) {
   const input = document.getElementById(`TM${tbNum}`);

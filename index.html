@@ -141,66 +141,64 @@
   </div>
 </div>
 
-<!-- Add this section AFTER the Textbox Controls section in your index.html -->
+
 
 <!-- Timer Board Controls -->
-<div class="timerboard-section">
-  <h3>Timer Board Controls</h3>
-  
-  <!-- Timer inputs row -->
-  <div class="timer-row-horizontal">
-    <!-- TM1 -->
-    <div class="timer-item">
-      <label for="TM1">TM1</label>
-      <input id="TM1" type="text" maxlength="3" placeholder="000" />
-      <div class="timer-buttons">
-        <button type="button" onclick="sendTimerDirect(1)" class="timer-send">Send</button>
-        <button type="button" onclick="copyTimerToMain(1)" class="timer-copy">Copy</button>
-      </div>
-    </div>
-    
-    <!-- TM2 -->
-    <div class="timer-item">
-      <label for="TM2">TM2</label>
-      <input id="TM2" type="text" maxlength="3" placeholder="000" />
-      <div class="timer-buttons">
-        <button type="button" onclick="sendTimerDirect(2)" class="timer-send">Send</button>
-        <button type="button" onclick="copyTimerToMain(2)" class="timer-copy">Copy</button>
-      </div>
-    </div>
-    
-    <!-- TM3 -->
-    <div class="timer-item">
-      <label for="TM3">TM3</label>
-      <input id="TM3" type="text" maxlength="3" placeholder="000" />
-      <div class="timer-buttons">
-        <button type="button" onclick="sendTimerDirect(3)" class="timer-send">Send</button>
-        <button type="button" onclick="copyTimerToMain(3)" class="timer-copy">Copy</button>
-      </div>
-    </div>
-    
-    <!-- TM4 -->
-    <div class="timer-item">
-      <label for="TM4">TM4</label>
-      <input id="TM4" type="text" maxlength="3" placeholder="000" />
-      <div class="timer-buttons">
-        <button type="button" onclick="sendTimerDirect(4)" class="timer-send">Send</button>
-        <button type="button" onclick="copyTimerToMain(4)" class="timer-copy">Copy</button>
+<!-- ============================== -->
+<!-- Command Boxes (Updated Layout) -->
+<!-- ============================== -->
+<div class="command-section">
+  <h3>Command Controls</h3>
+
+  <!-- Command Box 1 -->
+  <div class="command-item">
+    <label for="CMD1">Command Box 1</label>
+    <div class="command-input-wrapper">
+      <input id="CMD1" type="text" maxlength="15" placeholder="Enter command" />
+      <div class="command-buttons">
+        <button type="button" onclick="sendCommandDirect(1)" class="cmd-send">Send</button>
+        <button type="button" onclick="copyCommandToMain(1)" class="cmd-copy">Copy</button>
       </div>
     </div>
   </div>
-  
-  <!-- Mode Switch Buttons -->
-  <div class="mode-switch-section">
-    <h4>Mode Switch</h4>
-    <div class="mode-buttons-row">
-      <button type="button" onclick="sendModeCommand(1)" class="mode-btn mode-1">Mode 1</button>
-      <button type="button" onclick="sendModeCommand(2)" class="mode-btn mode-2">Mode 2</button>
-      <button type="button" onclick="sendModeCommand(3)" class="mode-btn mode-3">Mode 3</button>
-      <button type="button" onclick="sendModeCommand(4)" class="mode-btn mode-4">Mode 4</button>
+
+  <!-- Command Box 2 -->
+  <div class="command-item">
+    <label for="CMD2">Command Box 2</label>
+    <div class="command-input-wrapper">
+      <input id="CMD2" type="text" maxlength="15" placeholder="Enter command" />
+      <div class="command-buttons">
+        <button type="button" onclick="sendCommandDirect(2)" class="cmd-send">Send</button>
+        <button type="button" onclick="copyCommandToMain(2)" class="cmd-copy">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Command Box 3 -->
+  <div class="command-item">
+    <label for="CMD3">Command Box 3</label>
+    <div class="command-input-wrapper">
+      <input id="CMD3" type="text" maxlength="15" placeholder="Enter command" />
+      <div class="command-buttons">
+        <button type="button" onclick="sendCommandDirect(3)" class="cmd-send">Send</button>
+        <button type="button" onclick="copyCommandToMain(3)" class="cmd-copy">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Command Box 4 -->
+  <div class="command-item">
+    <label for="CMD4">Command Box 4</label>
+    <div class="command-input-wrapper">
+      <input id="CMD4" type="text" maxlength="15" placeholder="Enter command" />
+      <div class="command-buttons">
+        <button type="button" onclick="sendCommandDirect(4)" class="cmd-send">Send</button>
+        <button type="button" onclick="copyCommandToMain(4)" class="cmd-copy">Copy</button>
+      </div>
     </div>
   </div>
 </div>
+
 
 
   </main>
