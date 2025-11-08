@@ -741,9 +741,6 @@ function setTextboxValue(tbId) {
 
 
 // =========================================
-// TIMER BOARD CONTROLS (Add to HTML first)
-// =========================================
-// =========================================
 // TIMER BOARD CONTROLS (Updated)
 // =========================================
 
@@ -792,11 +789,12 @@ function copyCommandToMain(cmdNum) {
     return;
   }
 
-  const message = `CMD${cmdNum}:${value}`;
-  mainInput.value = message;
+  // Just copy the raw command text (no CMDx prefix)
+  mainInput.value = value;
   mainInput.focus();
-  console.log(`📋 Copied to main: ${message}`);
+  console.log(`📋 Copied raw command: ${value}`);
 }
+
 
 
 function copyTimerToMain(tbNum) {
